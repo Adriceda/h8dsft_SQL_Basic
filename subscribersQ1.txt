@@ -1,0 +1,10 @@
+SELECT COUNT(subscriber_type) AS SubscriberQ1
+
+FROM `bigquery-public-data.san_francisco.bikeshare_trips` AS trips
+RIGHT JOIN `bigquery-public-data.san_francisco.bikeshare_stations` AS stations
+ON trips.start_station_id = stations.station_id
+
+
+WHERE landmark = "Redwood City" 
+AND start_date BETWEEN "2016-01-01" AND "2016-03-31"
+AND subscriber_type = 'Subscriber'
